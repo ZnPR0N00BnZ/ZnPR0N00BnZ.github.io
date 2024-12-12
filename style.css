@@ -1,6 +1,52 @@
-section {
-  height: 100vh;
+/* Ensure the body and html take full height */
+/* body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent overall scrolling */
+/* } */
+*/
+
+/* Container should take up the full height */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Each section should take up the full viewport height */
+.slide {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Horizontal scrolling sections should also have full viewport height */
+.horizontal {
+  display: flex;
+  justify-content: left;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Each slide inside the horizontal scrolling section should take full width of the viewport */
+.horizontal > div {
+  flex: 0 0 100vw; /* Make each child div a full-width slide */
+  scroll-snap-align: start; /* Ensure each div aligns at the start of the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
 }
