@@ -1,12 +1,4 @@
-/* Ensure the body and html take full height */
-/* body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; /* Prevent overall scrolling */
-/* } */
-*/
+*/ 
 
 /* Container should take up the full height */
 .container {
@@ -26,7 +18,7 @@ html {
 /* Horizontal scrolling sections should also have full viewport height */
 .horizontal {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   overflow-x: scroll; /* Enable horizontal scrolling */
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
@@ -34,8 +26,6 @@ html {
 
 /* Each slide inside the horizontal scrolling section should take full width of the viewport */
 .horizontal > div {
-  flex: 0 0 100vw; /* Make each child div a full-width slide */
-  scroll-snap-align: start; /* Ensure each div aligns at the start of the container */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,5 +38,48 @@ h1 {
 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+/* Custom scrollbar styling for horizontal scrollbar only */
+.horizontal::-webkit-scrollbar {
+  height: 12px; /* Height for horizontal scrollbar */
+  width: 0; /* Hide vertical scrollbar width */
+}
+
+.horizontal::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray track */
+  border-radius: 6px;
+}
+
+.horizontal::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 6px;
+}
+
+.horizontal::-webkit-scrollbar-thumb:hover {
+  background: darkred; /* Darker green on hover */
+}
+
+/* Reset global scrollbar to default */
+::-webkit-scrollbar {
+  width: auto; /* Default width for vertical scrollbars */
+  height: auto; /* Default height for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: auto; /* Default track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: auto; /* Default thumb color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: auto; /* Default hover color */
+}
+
+body,
+html {
+  background-color: #eae7e0;
 }
